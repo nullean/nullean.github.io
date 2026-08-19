@@ -230,6 +230,23 @@
   .ar-sheen  { animation: ar-sheen-sweep 4s ease-in-out 1s infinite; }
   .ar-in     { animation: ar-text-in 0.4s ease-out 0.2s both; }
   .ar-cur-in { animation: ar-text-in 0.4s ease-out 0.5s both; }
+
+  /* curb mark animations */
+  @keyframes cu-l-in {
+    from { opacity: 0; transform: translateX(-10px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes cu-r-in {
+    from { opacity: 0; transform: translateX(10px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  .cu-l { animation: cu-l-in 0.4s ease-out 0.2s both; }
+  .cu-r { animation: cu-r-in 0.4s ease-out 0.4s both; }
+
+  /* curb card */
+  .card-curb { border-top-color: #FFB03D; }
+  .card-curb .card-name { color: #FFB03D; }
+  .card-curb .badge-stable { color: #FFB03D; border-color: rgba(255,176,61,0.3); background: rgba(255,176,61,0.06); }
   .card-arrow {
     color: var(--dim);
     font-size: 16px;
@@ -404,6 +421,34 @@
           <div class="card-meta">
             <span class="card-nuget">nuget <code>Nullean.Argh</code></span>
             <span class="badge badge-stable">stable</span>
+          </div>
+        </a>
+
+        <a class="project-card card-curb" href="https://curb.nullean.net">
+          <div class="card-header">
+            <div class="card-mark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192" role="img" aria-label="curb">
+  <defs>
+    <linearGradient id="fC" x1="0" y1="0" x2="1" y2="1"><stop offset="0.46" stop-color="#FFB03D"></stop><stop offset="0.54" stop-color="#A96BFF"></stop></linearGradient>
+    <radialGradient id="gC" cx="0.26" cy="0.14" r="1.1"><stop offset="0" stop-color="#1B2126"></stop><stop offset="0.55" stop-color="#0D1013"></stop><stop offset="1" stop-color="#08090B"></stop></radialGradient>
+  </defs>
+  <path d="M46 0 H192 V192 H0 V46 A46 46 0 0 1 46 0 Z" fill="url(#fC)"></path>
+  <path d="M47 9 H183 V183 H9 V47 A38 38 0 0 1 47 9 Z" fill="url(#gC)"></path>
+  <path d="M47 10 H182 V182 H10 V47 A37 37 0 0 1 47 10 Z" fill="none" stroke="#08090B" stroke-width="2"></path>
+  <path d="M48 12.5 H179.5 V179.5 H12.5 V48 A35.5 35.5 0 0 1 48 12.5 Z" fill="none" stroke="#FFFFFF" stroke-opacity="0.16" stroke-width="1"></path>
+  <g font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="92" font-weight="700">
+    <text class="cu-l" x="40.61" y="123.45" fill="#FFB03D">{</text>
+    <text class="cu-r" x="96" y="123.45" fill="#C39BFF">}</text>
+  </g>
+</svg></div>
+            <div class="card-top">
+              <span class="card-name">Curb</span>
+              <span class="card-arrow">↗</span>
+            </div>
+          </div>
+          <p class="card-tagline">Lossless, semantic C# formatter. AOT-safe, MSBuild-integrated, editorconfig-native.</p>
+          <div class="card-meta">
+            <span class="card-nuget">nuget <code>Curb</code></span>
+            <span class="badge badge-stable">preview</span>
           </div>
         </a>
 
