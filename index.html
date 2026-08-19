@@ -186,14 +186,25 @@
     gap: 10px;
     transition: background 0.15s;
     position: relative;
+    border-top: 2px solid transparent;
   }
   .project-card:hover { background: var(--bg2); }
   .project-card:hover .card-arrow { opacity: 1; transform: translate(2px, -2px); }
+  .project-card:hover .ar-sheen { animation-play-state: running; }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 4px;
+  }
+  .card-mark { flex-shrink: 0; }
+  .card-mark svg { width: 40px; height: 40px; display: block; }
   .card-top {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     gap: 12px;
+    flex: 1;
   }
   .card-name {
     font-family: var(--display);
@@ -202,6 +213,23 @@
     color: var(--teal-hi);
     letter-spacing: -0.01em;
   }
+  /* per-project accent colours */
+  .card-argh { border-top-color: #B8FF3D; }
+  .card-argh .card-name { color: #B8FF3D; }
+  .card-argh .badge-stable { color: #B8FF3D; border-color: rgba(184,255,61,0.3); background: rgba(184,255,61,0.06); }
+
+  /* argh mark animations */
+  @keyframes ar-sheen-sweep {
+    0%   { transform: skewX(-18deg) translateX(0); }
+    100% { transform: skewX(-18deg) translateX(400px); }
+  }
+  @keyframes ar-text-in {
+    from { opacity: 0; transform: translateX(-8px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  .ar-sheen  { animation: ar-sheen-sweep 4s ease-in-out 1s infinite; }
+  .ar-in     { animation: ar-text-in 0.4s ease-out 0.2s both; }
+  .ar-cur-in { animation: ar-text-in 0.4s ease-out 0.5s both; }
   .card-arrow {
     color: var(--dim);
     font-size: 16px;
@@ -348,10 +376,29 @@
       <p class="section-label">Projects</p>
       <div class="projects" id="projects">
 
-        <a class="project-card" href="https://argh.nullean.net">
-          <div class="card-top">
-            <span class="card-name">Nullean.Argh</span>
-            <span class="card-arrow">↗</span>
+        <a class="project-card card-argh" href="https://argh.nullean.net">
+          <div class="card-header">
+            <div class="card-mark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192" role="img" aria-label="argh">
+  <defs>
+    <linearGradient id="fA" x1="0" y1="0" x2="1" y2="1"><stop offset="0.46" stop-color="#B8FF3D"></stop><stop offset="0.54" stop-color="#4A8CFF"></stop></linearGradient>
+    <radialGradient id="gA" cx="0.26" cy="0.14" r="1.1"><stop offset="0" stop-color="#1B2126"></stop><stop offset="0.55" stop-color="#0D1013"></stop><stop offset="1" stop-color="#08090B"></stop></radialGradient>
+    <linearGradient id="shA" x1="0" y1="0" x2="1" y2="0"><stop offset="0.35" stop-color="#FFFFFF" stop-opacity="0"></stop><stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0.8"></stop><stop offset="0.65" stop-color="#FFFFFF" stop-opacity="0"></stop></linearGradient>
+    <mask id="ringA"><rect width="192" height="192" rx="12" fill="#FFFFFF"></rect><rect x="9" y="9" width="174" height="174" rx="5" fill="#000000"></rect></mask>
+  </defs>
+  <rect width="192" height="192" rx="12" fill="url(#fA)"></rect>
+  <g mask="url(#ringA)"><rect class="ar-sheen" x="-120" y="-20" width="120" height="232" fill="url(#shA)" transform="skewX(-18)"></rect></g>
+  <rect x="9" y="9" width="174" height="174" rx="5" fill="url(#gA)"></rect>
+  <rect x="10" y="10" width="172" height="172" rx="4.5" fill="none" stroke="#08090B" stroke-width="2"></rect>
+  <rect x="12.5" y="12.5" width="167" height="167" rx="3.5" fill="none" stroke="#FFFFFF" stroke-opacity="0.16" stroke-width="1"></rect>
+  <g font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="96" font-weight="700" dominant-baseline="central">
+    <text class="ar-in" x="38.4" y="100.8" fill="#B8FF3D">-</text>
+    <g class="ar-cur-in"><text x="96" y="96" fill="#6BA3FF">a</text></g>
+  </g>
+</svg></div>
+            <div class="card-top">
+              <span class="card-name">Nullean.Argh</span>
+              <span class="card-arrow">↗</span>
+            </div>
           </div>
           <p class="card-tagline">Source-generated CLI parser for .NET. AOT-safe, zero reflection.</p>
           <div class="card-meta">
