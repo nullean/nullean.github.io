@@ -75,11 +75,38 @@
     align-items: center;
     justify-content: space-between;
   }
-  .logo img {
-    height: 32px;
-    width: auto;
-    display: block;
+  .logo svg { height: 32px; width: auto; display: block; }
+  .hero-avatar { flex-shrink: 0; }
+  .hero-avatar svg { width: 140px; height: 140px; display: block; }
+
+  /* ── SVG brand animations ── */
+  @keyframes nl-sheen-mark {
+    0%          { transform: skewX(-18deg) translateX(0); }
+    100%        { transform: skewX(-18deg) translateX(400px); }
   }
+  @keyframes nl-sheen-lock {
+    0%          { transform: skewX(-18deg) translateX(0); }
+    100%        { transform: skewX(-18deg) translateX(500px); }
+  }
+  @keyframes nl-cursor-blink {
+    0%, 49%  { opacity: 1; }
+    50%, 99% { opacity: 0; }
+  }
+  @keyframes nl-chev-pulse {
+    0%, 100% { transform: translateX(0); }
+    50%      { transform: translateX(4px); }
+  }
+  @keyframes nl-cur-slide-in {
+    from { opacity: 0; transform: translateX(12px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+
+  .hero-avatar .nl-sheen  { animation: nl-sheen-mark 4s ease-in-out 1s infinite; }
+  .logo        .nl-sheen  { animation: nl-sheen-lock 4s ease-in-out 1s infinite; }
+  .nl-chev     { animation: nl-chev-pulse 2.4s ease-in-out infinite; }
+  .nl-blink    { animation: nl-cursor-blink 1.1s step-start infinite; }
+  .nl-cur-in,
+  .nl-cur-lock { animation: nl-cur-slide-in 0.5s ease-out 0.3s both; }
   header nav a {
     color: var(--muted);
     text-decoration: none;
@@ -240,9 +267,34 @@
 
 <header>
   <div class="wrap">
-    <a href="/" class="logo">
-      <img src="assets/nullean-lockup-animated.svg" alt="Nullean"/>
-    </a>
+    <a href="/" class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 272 96" width="272" height="96" role="img" aria-label="nullean">
+  <defs>
+    <linearGradient id="fh" x1="0" y1="0.2" x2="1" y2="0.8">
+      <stop offset="0.44" stop-color="#35FFFF"></stop><stop offset="0.56" stop-color="#FF7F7F"></stop>
+    </linearGradient>
+    <radialGradient id="gh" cx="0.18" cy="0.12" r="1.2">
+      <stop offset="0" stop-color="#1B2126"></stop><stop offset="0.55" stop-color="#0D1013"></stop><stop offset="1" stop-color="#08090B"></stop>
+    </radialGradient>
+    <linearGradient id="shh" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0.35" stop-color="#FFFFFF" stop-opacity="0"></stop>
+      <stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0.8"></stop>
+      <stop offset="0.65" stop-color="#FFFFFF" stop-opacity="0"></stop>
+    </linearGradient>
+    <mask id="ringh">
+      <rect width="272" height="96" rx="10" fill="#FFFFFF"></rect>
+      <rect x="6" y="6" width="260" height="84" rx="5" fill="#000000"></rect>
+    </mask>
+    <clipPath id="type"><rect id="typeRect" x="76" y="18" width="152" height="60"></rect></clipPath>
+  </defs>
+  <rect width="272" height="96" rx="10" fill="url(#fh)"></rect>
+  <g mask="url(#ringh)"><rect class="nl-sheen" x="-140" y="-20" width="140" height="136" fill="url(#shh)" transform="skewX(-18)"></rect></g>
+  <rect x="6" y="6" width="260" height="84" rx="5" fill="url(#gh)"></rect>
+  <polyline class="nl-chev" points="28,35.5 42,48 28,60.5" fill="none" stroke="#35FFFF" stroke-width="5.4" stroke-linecap="round" stroke-linejoin="round"></polyline>
+  <g clip-path="url(#type)">
+    <text x="76" y="61" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="38" font-weight="700" letter-spacing="-1" fill="#FFFFFF">nullean</text>
+  </g>
+  <g class="nl-cur-lock"><rect class="nl-blink" x="236" y="54.5" width="20" height="5.4" rx="0.8" fill="#FF7F7F"></rect></g>
+</svg></a>
     <nav>
       <a href="https://github.com/nullean" target="_blank" rel="noopener">GitHub</a>
     </nav>
@@ -253,7 +305,32 @@
   <section class="hero">
     <div class="wrap">
       <div class="hero-inner">
-        <img class="hero-avatar" src="assets/nullean-mark-animated.svg" alt="Nullean"/>
+        <div class="hero-avatar"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192" role="img" aria-label="nullean">
+  <defs>
+    <linearGradient id="f" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0.46" stop-color="#35FFFF"></stop><stop offset="0.54" stop-color="#FF7F7F"></stop>
+    </linearGradient>
+    <radialGradient id="g" cx="0.26" cy="0.14" r="1.1">
+      <stop offset="0" stop-color="#1B2126"></stop><stop offset="0.55" stop-color="#0D1013"></stop><stop offset="1" stop-color="#08090B"></stop>
+    </radialGradient>
+    <linearGradient id="sh" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0.35" stop-color="#FFFFFF" stop-opacity="0"></stop>
+      <stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0.8"></stop>
+      <stop offset="0.65" stop-color="#FFFFFF" stop-opacity="0"></stop>
+    </linearGradient>
+    <mask id="ring">
+      <rect width="192" height="192" rx="12" fill="#FFFFFF"></rect>
+      <rect x="9" y="9" width="174" height="174" rx="5" fill="#000000"></rect>
+    </mask>
+  </defs>
+  <rect width="192" height="192" rx="12" fill="url(#f)"></rect>
+  <g mask="url(#ring)"><rect class="nl-sheen" x="-120" y="-20" width="120" height="232" fill="url(#sh)" transform="skewX(-18)"></rect></g>
+  <rect x="9" y="9" width="174" height="174" rx="5" fill="url(#g)"></rect>
+  <rect x="10" y="10" width="172" height="172" rx="4.5" fill="none" stroke="#08090B" stroke-width="2"></rect>
+  <rect x="12.5" y="12.5" width="167" height="167" rx="3.5" fill="none" stroke="#FFFFFF" stroke-opacity="0.16" stroke-width="1"></rect>
+  <polyline class="nl-chev" points="56,70 86,96 56,122" fill="none" stroke="#35FFFF" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"></polyline>
+  <g class="nl-cur-in"><rect class="nl-blink" x="98" y="112" width="42" height="11" rx="1" fill="#FF7F7F"></rect></g>
+</svg></div>
         <div class="hero-text">
           <h1><span>Modern .NET</span> libraries<br/>and CLIs. <span>Great DX.</span></h1>
           <p>AOT compatibility, speed, low allocations, and source generation — without compromising developer experience.</p>
