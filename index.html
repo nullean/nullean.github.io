@@ -60,12 +60,21 @@
     justify-content: space-between;
   }
   .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-family: var(--display);
     font-size: 18px;
     font-weight: 700;
     color: var(--accent-hi);
     text-decoration: none;
     letter-spacing: -0.01em;
+  }
+  .logo img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    opacity: 0.9;
   }
   header nav a {
     color: var(--muted);
@@ -81,6 +90,20 @@
     padding: 80px 0 64px;
     border-bottom: 1px solid var(--line-soft);
   }
+  .hero-inner {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+  }
+  .hero-avatar {
+    flex-shrink: 0;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    opacity: 0.88;
+  }
+  .hero-text {}
   .hero h1 {
     font-family: var(--display);
     font-size: clamp(32px, 5vw, 52px);
@@ -96,6 +119,10 @@
     color: var(--muted);
     max-width: 540px;
     line-height: 1.7;
+  }
+  @media (max-width: 600px) {
+    .hero-inner { flex-direction: column; gap: 28px; }
+    .hero-avatar { width: 80px; height: 80px; }
   }
 
   /* ── Projects ── */
@@ -211,7 +238,10 @@
 
 <header>
   <div class="wrap">
-    <a href="/" class="logo">nullean</a>
+    <a href="/" class="logo">
+      <img src="https://avatars.githubusercontent.com/u/36402410?v=4" alt="Nullean"/>
+      nullean
+    </a>
     <nav>
       <a href="https://github.com/nullean" target="_blank" rel="noopener">GitHub</a>
     </nav>
@@ -221,8 +251,13 @@
 <main>
   <section class="hero">
     <div class="wrap">
-      <h1>Focused <span>.NET tools</span><br/>that stay out of your way.</h1>
-      <p>A collection of libraries built around source generation, zero-reflection design, and AOT compatibility.</p>
+      <div class="hero-inner">
+        <img class="hero-avatar" src="https://avatars.githubusercontent.com/u/36402410?v=4" alt="Nullean"/>
+        <div class="hero-text">
+          <h1>Focused <span>.NET tools</span><br/>that stay out of your way.</h1>
+          <p>A collection of libraries built around source generation, zero-reflection design, and AOT compatibility.</p>
+        </div>
+      </div>
     </div>
   </section>
 
