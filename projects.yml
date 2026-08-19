@@ -1,0 +1,15 @@
+projects:
+  - id: argh
+    name: Nullean.Argh
+    tagline: Source-generated CLI parser for .NET. AOT-safe, zero reflection.
+    url: https://argh.nullean.net
+    repo: nullean/argh
+    nuget: Nullean.Argh
+    status: stable
+
+  # - id: formatter
+  #   name: Kerf
+  #   tagline: Syntax and semantic style enforcement for C#.
+  #   url: https://formatter.nullean.net
+  #   repo: nullean/formatter
+  #   status: preview
