@@ -75,21 +75,10 @@
     align-items: center;
     justify-content: space-between;
   }
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: var(--display);
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--teal-hi);
-    text-decoration: none;
-    letter-spacing: -0.01em;
-  }
   .logo img {
-    width: 28px;
-    height: 28px;
-    opacity: 0.9;
+    height: 32px;
+    width: auto;
+    display: block;
   }
   header nav a {
     color: var(--muted);
@@ -112,9 +101,8 @@
   }
   .hero-avatar {
     flex-shrink: 0;
-    width: 120px;
-    height: 120px;
-    opacity: 0.88;
+    width: 140px;
+    height: 140px;
   }
   .hero-text {}
   .hero h1 {
@@ -253,8 +241,7 @@
 <header>
   <div class="wrap">
     <a href="/" class="logo">
-      <img src="https://avatars.githubusercontent.com/u/36402410?v=4" alt="Nullean"/>
-      nullean
+      <img src="assets/nullean-lockup-animated.svg" alt="Nullean"/>
     </a>
     <nav>
       <a href="https://github.com/nullean" target="_blank" rel="noopener">GitHub</a>
@@ -266,7 +253,7 @@
   <section class="hero">
     <div class="wrap">
       <div class="hero-inner">
-        <img class="hero-avatar" src="https://avatars.githubusercontent.com/u/36402410?v=4" alt="Nullean"/>
+        <img class="hero-avatar" src="assets/nullean-mark-animated.svg" alt="Nullean"/>
         <div class="hero-text">
           <h1><span>Modern .NET</span> libraries<br/>and CLIs. <span>Great DX.</span></h1>
           <p>AOT compatibility, speed, low allocations, and source generation — without compromising developer experience.</p>
