@@ -40,21 +40,25 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* gradient mesh — three soft radial blobs */
+  /* CSS mesh gradient — teal + brick-red from org icon, complementary indigo */
   body::before {
     content: '';
     position: fixed; inset: 0; z-index: 0; pointer-events: none;
-    background:
-      radial-gradient(ellipse 60% 50% at 15% 20%,  rgba(59, 93, 180, 0.18) 0%, transparent 70%),
-      radial-gradient(ellipse 50% 60% at 85% 10%,  rgba(91, 60, 180, 0.13) 0%, transparent 65%),
-      radial-gradient(ellipse 70% 40% at 55% 90%,  rgba(30, 90, 160, 0.12) 0%, transparent 70%);
+    background-color: #0B0D10;
+    background-image:
+      radial-gradient(ellipse at 8%   18%, hsla(180, 67%, 37%, 0.38) 0px, transparent 55%),
+      radial-gradient(ellipse at 90%  5%,  hsla(0,   43%, 40%, 0.30) 0px, transparent 50%),
+      radial-gradient(ellipse at 65%  75%, hsla(180, 50%, 25%, 0.28) 0px, transparent 55%),
+      radial-gradient(ellipse at 25%  85%, hsla(270, 40%, 25%, 0.20) 0px, transparent 50%),
+      radial-gradient(ellipse at 78%  45%, hsla(330, 35%, 28%, 0.18) 0px, transparent 45%),
+      radial-gradient(ellipse at 45%  35%, hsla(190, 55%, 20%, 0.15) 0px, transparent 60%);
   }
   /* noise grain on top */
   body::after {
     content: '';
     position: fixed; inset: 0; z-index: 0; pointer-events: none;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    opacity: 0.028;
+    opacity: 0.032;
   }
 
   .wrap { position: relative; z-index: 1; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
