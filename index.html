@@ -190,29 +190,11 @@
   }
   .project-card:hover { background: var(--bg2); }
   .project-card:hover .card-arrow { opacity: 1; transform: translate(2px, -2px); }
-  .project-card:hover .ar-sheen { animation-play-state: running; }
-  .card-header {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 4px;
+  .card-lockup {
+    display: block;
+    margin-bottom: 6px;
   }
-  .card-mark { flex-shrink: 0; }
-  .card-mark svg { width: 40px; height: 40px; display: block; }
-  .card-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 12px;
-    flex: 1;
-  }
-  .card-name {
-    font-family: var(--display);
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--teal-hi);
-    letter-spacing: -0.01em;
-  }
+  .card-lockup svg { height: 52px; width: auto; display: block; }
   /* per-project accent colours */
   .card-argh { border-top-color: #B8FF3D; }
   .card-argh .card-name { color: #B8FF3D; }
@@ -230,6 +212,7 @@
   .ar-sheen  { animation: ar-sheen-sweep 4s ease-in-out 1s infinite; }
   .ar-in     { animation: ar-text-in 0.4s ease-out 0.2s both; }
   .ar-cur-in { animation: ar-text-in 0.4s ease-out 0.5s both; }
+  .ar-blink  { animation: nl-cursor-blink 1.1s step-start infinite; }
 
   /* curb mark animations */
   @keyframes cu-l-in {
@@ -248,12 +231,13 @@
   .card-curb .card-name { color: #FFB03D; }
   .card-curb .badge-stable { color: #FFB03D; border-color: rgba(255,176,61,0.3); background: rgba(255,176,61,0.06); }
   .card-arrow {
+    position: absolute;
+    top: 20px;
+    right: 20px;
     color: var(--dim);
     font-size: 16px;
     opacity: 0;
     transition: opacity 0.15s, transform 0.15s;
-    flex-shrink: 0;
-    margin-top: 2px;
   }
   .card-tagline {
     font-size: 13px;
@@ -394,29 +378,24 @@
       <div class="projects" id="projects">
 
         <a class="project-card card-argh" href="https://argh.nullean.net">
-          <div class="card-header">
-            <div class="card-mark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192" role="img" aria-label="argh">
+          <span class="card-arrow">↗</span>
+          <div class="card-lockup"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 174 96" width="174" height="96" role="img" aria-label="--argh">
   <defs>
-    <linearGradient id="fA" x1="0" y1="0" x2="1" y2="1"><stop offset="0.46" stop-color="#B8FF3D"></stop><stop offset="0.54" stop-color="#4A8CFF"></stop></linearGradient>
-    <radialGradient id="gA" cx="0.26" cy="0.14" r="1.1"><stop offset="0" stop-color="#1B2126"></stop><stop offset="0.55" stop-color="#0D1013"></stop><stop offset="1" stop-color="#08090B"></stop></radialGradient>
+    <linearGradient id="fA" x1="0" y1="0.2" x2="1" y2="0.8"><stop offset="0.44" stop-color="#B8FF3D"></stop><stop offset="0.56" stop-color="#4A8CFF"></stop></linearGradient>
+    <radialGradient id="gA" cx="0.18" cy="0.12" r="1.2"><stop offset="0" stop-color="#1B2126"></stop><stop offset="0.55" stop-color="#0D1013"></stop><stop offset="1" stop-color="#08090B"></stop></radialGradient>
     <linearGradient id="shA" x1="0" y1="0" x2="1" y2="0"><stop offset="0.35" stop-color="#FFFFFF" stop-opacity="0"></stop><stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0.8"></stop><stop offset="0.65" stop-color="#FFFFFF" stop-opacity="0"></stop></linearGradient>
-    <mask id="ringA"><rect width="192" height="192" rx="12" fill="#FFFFFF"></rect><rect x="9" y="9" width="174" height="174" rx="5" fill="#000000"></rect></mask>
+    <mask id="ringA"><rect width="174" height="96" rx="10" fill="#FFFFFF"></rect><rect x="6" y="6" width="162" height="84" rx="5" fill="#000000"></rect></mask>
+    <clipPath id="typeA"><rect x="60" y="24" width="72" height="48"></rect></clipPath>
   </defs>
-  <rect width="192" height="192" rx="12" fill="url(#fA)"></rect>
-  <g mask="url(#ringA)"><rect class="ar-sheen" x="-120" y="-20" width="120" height="232" fill="url(#shA)" transform="skewX(-18)"></rect></g>
-  <rect x="9" y="9" width="174" height="174" rx="5" fill="url(#gA)"></rect>
-  <rect x="10" y="10" width="172" height="172" rx="4.5" fill="none" stroke="#08090B" stroke-width="2"></rect>
-  <rect x="12.5" y="12.5" width="167" height="167" rx="3.5" fill="none" stroke="#FFFFFF" stroke-opacity="0.16" stroke-width="1"></rect>
-  <g font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="96" font-weight="700" dominant-baseline="central">
-    <text class="ar-in" x="38.4" y="100.8" fill="#B8FF3D">-</text>
-    <g class="ar-cur-in"><text x="96" y="96" fill="#6BA3FF">a</text></g>
+  <rect width="174" height="96" rx="10" fill="url(#fA)"></rect>
+  <g mask="url(#ringA)"><rect class="ar-sheen" x="-140" y="-20" width="140" height="136" fill="url(#shA)" transform="skewX(-18)"></rect></g>
+  <rect x="6" y="6" width="162" height="84" rx="5" fill="url(#gA)"></rect>
+  <g font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="30" font-weight="700" dominant-baseline="central">
+    <text class="ar-in" x="24" y="49.5" fill="#B8FF3D">--</text>
+    <g clip-path="url(#typeA)"><text x="60" y="48" fill="#FFFFFF">argh</text></g>
+    <g class="ar-cur-in"><text class="ar-blink" x="132" y="48" fill="#6BA3FF">_</text></g>
   </g>
 </svg></div>
-            <div class="card-top">
-              <span class="card-name">Nullean.Argh</span>
-              <span class="card-arrow">↗</span>
-            </div>
-          </div>
           <p class="card-tagline">Source-generated CLI parser for .NET. AOT-safe, zero reflection.</p>
           <div class="card-meta">
             <span class="card-nuget">nuget <code>Nullean.Argh</code></span>
@@ -425,26 +404,20 @@
         </a>
 
         <a class="project-card card-curb" href="https://curb.nullean.net">
-          <div class="card-header">
-            <div class="card-mark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192" role="img" aria-label="curb">
+          <span class="card-arrow">↗</span>
+          <div class="card-lockup"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 176 96" width="176" height="96" role="img" aria-label="curb">
   <defs>
-    <linearGradient id="fC" x1="0" y1="0" x2="1" y2="1"><stop offset="0.46" stop-color="#FFB03D"></stop><stop offset="0.54" stop-color="#A96BFF"></stop></linearGradient>
-    <radialGradient id="gC" cx="0.26" cy="0.14" r="1.1"><stop offset="0" stop-color="#1B2126"></stop><stop offset="0.55" stop-color="#0D1013"></stop><stop offset="1" stop-color="#08090B"></stop></radialGradient>
+    <linearGradient id="fAH" x1="0" y1="0.2" x2="1" y2="0.8"><stop offset="0.44" stop-color="#FFB03D"></stop><stop offset="0.56" stop-color="#A96BFF"></stop></linearGradient>
+    <radialGradient id="gAH" cx="0.18" cy="0.12" r="1.2"><stop offset="0" stop-color="#1B2126"></stop><stop offset="0.55" stop-color="#0D1013"></stop><stop offset="1" stop-color="#08090B"></stop></radialGradient>
   </defs>
-  <path d="M46 0 H192 V192 H0 V46 A46 46 0 0 1 46 0 Z" fill="url(#fC)"></path>
-  <path d="M47 9 H183 V183 H9 V47 A38 38 0 0 1 47 9 Z" fill="url(#gC)"></path>
-  <path d="M47 10 H182 V182 H10 V47 A37 37 0 0 1 47 10 Z" fill="none" stroke="#08090B" stroke-width="2"></path>
-  <path d="M48 12.5 H179.5 V179.5 H12.5 V48 A35.5 35.5 0 0 1 48 12.5 Z" fill="none" stroke="#FFFFFF" stroke-opacity="0.16" stroke-width="1"></path>
-  <g font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-size="92" font-weight="700">
-    <text class="cu-l" x="40.61" y="123.45" fill="#FFB03D">{</text>
-    <text class="cu-r" x="96" y="123.45" fill="#C39BFF">}</text>
+  <path d="M24 0 H176 V96 H0 V24 A24 24 0 0 1 24 0 Z" fill="url(#fAH)"></path>
+  <path d="M25 5 H171 V91 H5 V25 A20 20 0 0 1 25 5 Z" fill="url(#gAH)"></path>
+  <g font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="700">
+    <text class="cu-l" x="26" y="56.95" font-size="30" fill="#FFB03D">{</text>
+    <text class="cu-r" x="44.06" y="56.95" font-size="30" fill="#C39BFF">}</text>
+    <text x="74" y="59.93" font-size="32" letter-spacing="-1" fill="#FFFFFF">curb</text>
   </g>
 </svg></div>
-            <div class="card-top">
-              <span class="card-name">Curb</span>
-              <span class="card-arrow">↗</span>
-            </div>
-          </div>
           <p class="card-tagline">Lossless, semantic C# formatter. AOT-safe, MSBuild-integrated, editorconfig-native.</p>
           <div class="card-meta">
             <span class="card-nuget">nuget <code>Curb</code> · <code>Curb-Cli</code></span>
