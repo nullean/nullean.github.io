@@ -214,17 +214,27 @@
   .ar-cur-in { animation: ar-text-in 0.4s ease-out 0.5s both; }
   .ar-blink  { animation: nl-cursor-blink 1.1s step-start infinite; }
 
-  /* curb mark animations */
-  @keyframes cu-l-in {
-    from { opacity: 0; transform: translateX(-10px); }
-    to   { opacity: 1; transform: translateX(0); }
+  /* curb animations */
+  @keyframes cu-sheen-sweep {
+    0%   { transform: skewX(-18deg) translateX(0); }
+    100% { transform: skewX(-18deg) translateX(380px); }
   }
-  @keyframes cu-r-in {
-    from { opacity: 0; transform: translateX(10px); }
-    to   { opacity: 1; transform: translateX(0); }
+  /* flush → drift apart → snap back with overshoot → flush */
+  @keyframes cu-l-drift {
+    0%, 25%  { transform: translate(0, 0); }
+    42%      { transform: translate(-5px, 6px); }
+    55%      { transform: translate(1.5px, -2px); }
+    65%, 100% { transform: translate(0, 0); }
   }
-  .cu-l { animation: cu-l-in 0.4s ease-out 0.2s both; }
-  .cu-r { animation: cu-r-in 0.4s ease-out 0.4s both; }
+  @keyframes cu-r-drift {
+    0%, 25%  { transform: translate(0, 0); }
+    42%      { transform: translate(5px, -6px); }
+    55%      { transform: translate(-1.5px, 2px); }
+    65%, 100% { transform: translate(0, 0); }
+  }
+  .cu-sheen { animation: cu-sheen-sweep 4s ease-in-out 1s infinite; }
+  .cu-l     { animation: cu-l-drift 3.5s ease-in-out 1.5s infinite; }
+  .cu-r     { animation: cu-r-drift 3.5s ease-in-out 1.5s infinite; }
 
   /* curb card */
   .card-curb { border-top-color: #FFB03D; }
@@ -409,8 +419,14 @@
   <defs>
     <linearGradient id="fAH" x1="0" y1="0.2" x2="1" y2="0.8"><stop offset="0.44" stop-color="#FFB03D"></stop><stop offset="0.56" stop-color="#A96BFF"></stop></linearGradient>
     <radialGradient id="gAH" cx="0.18" cy="0.12" r="1.2"><stop offset="0" stop-color="#1B2126"></stop><stop offset="0.55" stop-color="#0D1013"></stop><stop offset="1" stop-color="#08090B"></stop></radialGradient>
+    <linearGradient id="shAH" x1="0" y1="0" x2="1" y2="0"><stop offset="0.35" stop-color="#FFFFFF" stop-opacity="0"></stop><stop offset="0.5" stop-color="#FFFFFF" stop-opacity="0.8"></stop><stop offset="0.65" stop-color="#FFFFFF" stop-opacity="0"></stop></linearGradient>
+    <mask id="ringAH">
+      <path d="M24 0 H176 V96 H0 V24 A24 24 0 0 1 24 0 Z" fill="#FFFFFF"/>
+      <path d="M25 5 H171 V91 H5 V25 A20 20 0 0 1 25 5 Z" fill="#000000"/>
+    </mask>
   </defs>
   <path d="M24 0 H176 V96 H0 V24 A24 24 0 0 1 24 0 Z" fill="url(#fAH)"></path>
+  <g mask="url(#ringAH)"><rect class="cu-sheen" x="-140" y="-20" width="140" height="136" fill="url(#shAH)" transform="skewX(-18)"></rect></g>
   <path d="M25 5 H171 V91 H5 V25 A20 20 0 0 1 25 5 Z" fill="url(#gAH)"></path>
   <g font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="700">
     <text class="cu-l" x="26" y="56.95" font-size="30" fill="#FFB03D">{</text>
