@@ -7,6 +7,30 @@ projects:
     nuget: Nullean.Argh
     status: stable
 
+  - id: cdp
+    name: Nullean.Cdp
+    tagline: Chrome DevTools Protocol client for .NET. Drives pages with agent-browser locators, AOT and trim clean.
+    url: https://cdp.nullean.net
+    repo: nullean/cdp
+    nuget: Nullean.Cdp
+    status: preview
+
+  - id: snapshots
+    name: Nullean.Snapshots
+    tagline: Structural snapshot tests for .NET. Plain, capped failure messages, and nothing is accepted on its own.
+    url: https://snapshots.nullean.net
+    repo: nullean/snapshots
+    nuget: Nullean.Snapshots
+    status: preview
+
+  - id: terminal-images
+    name: Nullean.TerminalImages
+    tagline: Images in the terminal for .NET. Kitty, iTerm2 and Sixel with detection, and no dependencies.
+    url: https://terminal-images.nullean.net
+    repo: nullean/terminal-images
+    nuget: Nullean.TerminalImages
+    status: preview
+
   # - id: formatter
   #   name: Kerf
   #   tagline: Syntax and semantic style enforcement for C#.
