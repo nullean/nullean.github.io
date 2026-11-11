@@ -1,0 +1,9 @@
+# Bootstraps the toolchain and is the one entry point: `mise run <task>`, the same task names in every nullean repo.
+# This is a static site: there is no .NET to install, only the workflow checks.
+
+[tools]
+zizmor = "1"
+
+[tasks.check]
+description = "Fail on workflow findings (zizmor)"
+run = "zizmor --min-severity medium ."
