@@ -1,0 +1,19 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  zizmor:
+    uses: nullean/.github/.github/workflows/zizmor.yml@83ef343759c443afe1964e9c33327527f8677b05 # v1.3.0
+    permissions:
+      contents: read
