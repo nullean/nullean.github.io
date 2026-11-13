@@ -32,11 +32,11 @@ projects:
     status: preview
 
   - id: runna
-    name: Nullean.Runna
+    name: Runna
     tagline: Typed build targets for .NET. Targets are union or DU cases, dependencies run first, and every target gets real --help.
     url: https://runna.nullean.net
     repo: nullean/runna
-    nuget: Nullean.Runna
+    nuget: Runna
     status: preview
 
   # - id: formatter
