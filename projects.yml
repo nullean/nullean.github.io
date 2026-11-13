@@ -31,6 +31,14 @@ projects:
     nuget: Nullean.TerminalImages
     status: preview
 
+  - id: runna
+    name: Nullean.Runna
+    tagline: Typed build targets for .NET. Targets are union or DU cases, dependencies run first, and every target gets real --help.
+    url: https://runna.nullean.net
+    repo: nullean/runna
+    nuget: Nullean.Runna
+    status: preview
+
   # - id: formatter
   #   name: Kerf
   #   tagline: Syntax and semantic style enforcement for C#.
