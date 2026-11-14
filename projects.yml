@@ -45,7 +45,7 @@ projects:
     url: https://github.com/nullean/assembly-differ
     repo: nullean/assembly-differ
     nuget: assembly-differ
-    status: preview
+    status: stable
 
   # - id: formatter
   #   name: Kerf
