@@ -39,6 +39,14 @@ projects:
     nuget: Runna
     status: preview
 
+  - id: assembly-differ
+    name: assembly-differ
+    tagline: Public API diffs for .NET. Suggests the version bump, labels pull requests, and shows agents what a package update breaks in their code.
+    url: https://github.com/nullean/assembly-differ
+    repo: nullean/assembly-differ
+    nuget: assembly-differ
+    status: preview
+
   # - id: formatter
   #   name: Kerf
   #   tagline: Syntax and semantic style enforcement for C#.
